@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MLDynamicModal_Example' do
+  pod 'MLDynamicModal', :path => '../'
+
+  target 'MLDynamicModal_Tests' do
+    inherit! :search_paths
+    pod 'OCMock'
+    
+  end
+end
