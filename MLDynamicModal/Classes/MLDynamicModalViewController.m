@@ -151,7 +151,7 @@ static const int kTopSpaceContent = 4;
     [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:32.0f relation:NSLayoutRelationGreaterThanOrEqual];
     [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:32.0f relation:NSLayoutRelationGreaterThanOrEqual];
     
-
+    
     [self.containerView autoAlignAxisToSuperviewAxis:ALAxisVertical];
     self.topSpaceContentConstraint = [self.containerView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.navBar withOffset:kTopSpaceContent relation:NSLayoutRelationGreaterThanOrEqual];
     self.bottomSpaceContentConstraint = [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kBottomSpaceContent relation:NSLayoutRelationGreaterThanOrEqual];
@@ -190,19 +190,19 @@ static const int kTopSpaceContent = 4;
 
 - (void)addViewGestureRecognizers
 {
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissWithTapGesture:)];
-    [self.view addGestureRecognizer:tapGesture];
+    if (self.shouldDismissOnTap) {
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissWithTapGesture:)];
+        [self.backgroundView addGestureRecognizer:tapGesture];
+    }
     
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
-    [self.view addGestureRecognizer:pan];
+    if (self.shouldSwipeToDismiss) {
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+        [self.view addGestureRecognizer:pan];
+    }
 }
 
 - (void)dismissWithTapGesture:(UITapGestureRecognizer *)recognizer
 {
-    if (!self.shouldDismissOnTap) {
-        return;
-    }
-    
     CGPoint location = [recognizer locationInView:self.view];
     CGRect viewFrame = [self.view convertRect:self.insideViewToSet.frame fromView:self.insideViewToSet.superview];
     if ((!CGRectContainsPoint(viewFrame, location))) {
@@ -217,10 +217,6 @@ static const int kTopSpaceContent = 4;
 
 - (void)pan:(UIPanGestureRecognizer *)recognizer
 {
-    if (!self.shouldSwipeToDismiss) {
-        return;
-    }
-    
     CGPoint translation = [recognizer translationInView:recognizer.view];
     CGFloat d = translation.y / CGRectGetHeight(recognizer.view.bounds);
     if (recognizer.state == UIGestureRecognizerStateBegan) {
@@ -367,4 +363,3 @@ static const int kTopSpaceContent = 4;
 }
 
 @end
-
