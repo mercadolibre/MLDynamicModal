@@ -14,6 +14,7 @@
 
 static const int kBottomSpaceContent = 32;
 static const int kTopSpaceContent = 4;
+static const int kHorizontalMargin = 32;
 
 @interface MLDynamicModalViewController () <MLDynamicModalTransitionProtocol>
 @property (strong, nonatomic) UINavigationBar *navBar;
@@ -30,6 +31,7 @@ static const int kTopSpaceContent = 4;
 @property (strong, nonatomic) UIColor *closeButtonColor;
 @property (strong, nonatomic) UIColor *headerBackgroundColor;
 @property (nonatomic, assign) CGFloat viewOffsetY;
+@property (nonatomic, assign) CGFloat hortizontalMargin;
 @property (nonatomic, weak) id <MLDynamicModalViewControllerDelegate> viewControllerDelegate;
 @property (strong, nonatomic) MLDynamicModalTransitionAnimator *transitionAnimator;
 @property (nonatomic) BOOL showCloseButton;
@@ -53,7 +55,6 @@ static const int kTopSpaceContent = 4;
 {
     return [self initWithView:view attributedTitle:[[NSAttributedString alloc] initWithString:title] headerView:nil];
 }
-
 
 - (instancetype)initWithView:(UIView *)view attributedTitle:(NSAttributedString *)attributedTitle
 {
@@ -79,6 +80,7 @@ static const int kTopSpaceContent = 4;
         self.shouldDismissOnTap = NO;
         self.shouldSwipeToDismiss = NO;
         self.showVerticalIndicator = YES;
+        self.hortizontalMargin = kHorizontalMargin;
         self.backgroundColor = [UIColor colorWithRed:35/255 green:35/255 blue:35/255 alpha:0.5];
         self.closeButtonColor = [UIColor whiteColor];
         self.headerBackgroundColor = [UIColor colorWithRed:238/255.0f green:238/255.0f blue:238/255.0f alpha:1.0f];
@@ -148,8 +150,8 @@ static const int kTopSpaceContent = 4;
     [self.backgroundView autoPinEdgesToSuperviewEdges];
     
     //ContainerView
-    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:32.0f relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:32.0f relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:self.hortizontalMargin relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:self.hortizontalMargin relation:NSLayoutRelationGreaterThanOrEqual];
     
     
     [self.containerView autoAlignAxisToSuperviewAxis:ALAxisVertical];
@@ -182,7 +184,6 @@ static const int kTopSpaceContent = 4;
     
     //NavigationBar
     [self.navBar autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:20.0f];
-    [self.navBar autoPinEdgeToSuperviewEdge:ALEdgeRight];
     [self.navBar autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.navBar autoSetDimension:ALDimensionHeight toSize:44.0f];
 }
@@ -360,6 +361,11 @@ static const int kTopSpaceContent = 4;
 - (void)setModalHeaderBackgroundColor:(UIColor *)color
 {
     self.headerBackgroundColor = color;
+}
+
+- (void)setHorizontalMargin:(CGFloat)horizontalMargin
+{
+    self.hortizontalMargin = horizontalMargin;
 }
 
 @end

@@ -67,5 +67,6 @@
 - (void)setModalBackgroundColor:(UIColor *)color;
 - (void)setModalHeaderBackgroundColor:(UIColor *)color;
 - (void)setShowVerticalIndicator:(BOOL)show;
+- (void)setHorizontalMargin:(CGFloat)horizontalMargin;
 
 @end
