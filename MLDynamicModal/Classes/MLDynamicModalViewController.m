@@ -185,6 +185,7 @@ static const int kHorizontalMargin = 32;
     //NavigationBar
     [self.navBar autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:20.0f];
     [self.navBar autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [self.navBar autoSetDimension:ALDimensionWidth toSize:44.0f];
     [self.navBar autoSetDimension:ALDimensionHeight toSize:44.0f];
 }
 
