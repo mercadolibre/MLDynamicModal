@@ -16,8 +16,10 @@ pod "MLDynamicModal"
 ```
 
 ## Author
+Julian Bruno, julian.bruno@mercadolibre.com
 
-Jonatan Urquiza, jonatan.urquiza@mercadolibre.com
+Vanesa Stricker, vanesa.stricker@mercadolibre.com
 
 Damian Trimboli, damian.trimboli@mercadolibre.com
 
+Jonatan Urquiza, jonatan.urquiza@mercadolibre.com
