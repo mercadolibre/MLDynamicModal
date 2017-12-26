@@ -120,7 +120,7 @@ static const int kHorizontalMargin = 32;
     
     //ScrollView
     self.scrollView = [[UIScrollView alloc] initForAutoLayout];
-    self.scrollView.backgroundColor = [UIColor whiteColor];
+    self.scrollView.backgroundColor = [UIColor clearColor];
     self.scrollView.scrollEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = self.showVerticalIndicator;
     [self.containerView addSubview:self.scrollView];
