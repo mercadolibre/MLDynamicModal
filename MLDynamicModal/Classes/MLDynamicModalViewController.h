@@ -8,17 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-/**
- *  This protocol must be implemented by all classes that instantiates a MLDynamicModalViewController
- **/
+
 @protocol MLDynamicModalViewControllerDelegate <NSObject>
-
-/**
- *  This method is called when the modal is dismissed after an action enable for the item.
- *  Classes that implement this method, must push the specified url.
- **/
-- (void)itemViewDismissedWithRedirectionToURL:(NSURL *)url;
-
 /**
  *  This method is called when the modal is dismissed
  **/
@@ -59,6 +50,8 @@
  *  @return An instance of MLDynamicModalViewController
  */
 - (instancetype)initWithView:(UIView *)view;
+
+@property (nonatomic, weak) id <MLDynamicModalViewControllerDelegate> viewControllerDelegate;
 
 - (void)setShowCloseButton:(BOOL)show;
 - (void)setModalCloseButtonColor:(UIColor *)color;
