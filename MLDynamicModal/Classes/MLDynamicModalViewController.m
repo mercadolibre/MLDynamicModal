@@ -32,7 +32,6 @@ static const int kHorizontalMargin = 32;
 @property (strong, nonatomic) UIColor *headerBackgroundColor;
 @property (nonatomic, assign) CGFloat viewOffsetY;
 @property (nonatomic, assign) CGFloat hortizontalMargin;
-@property (nonatomic, weak) id <MLDynamicModalViewControllerDelegate> viewControllerDelegate;
 @property (strong, nonatomic) MLDynamicModalTransitionAnimator *transitionAnimator;
 @property (nonatomic) BOOL showCloseButton;
 @property (nonatomic) BOOL shouldDismissOnTap;
@@ -263,7 +262,9 @@ static const int kHorizontalMargin = 32;
 
 - (void)dismissView
 {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+        [self.viewControllerDelegate itemViewDismissed];
+    }];
 }
 
 - (void)offsetView:(CGFloat)y
