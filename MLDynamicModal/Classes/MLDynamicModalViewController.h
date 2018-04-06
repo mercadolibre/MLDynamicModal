@@ -14,7 +14,6 @@
  *  This method is called when the modal is dismissed
  **/
 - (void)itemViewDismissed;
-
 @end
 
 @interface MLDynamicModalViewController : UIViewController
@@ -61,5 +60,6 @@
 - (void)setModalHeaderBackgroundColor:(UIColor *)color;
 - (void)setShowVerticalIndicator:(BOOL)show;
 - (void)setHorizontalMargin:(CGFloat)horizontalMargin;
+- (void)setShowCancelButton:(BOOL)show title:(NSString *)title;
 
 @end

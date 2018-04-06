@@ -11,6 +11,7 @@
 #import "MLDynamicModalTransitionAnimator.h"
 #import "PureLayout.h"
 #import "FXBlurView.h"
+#import <MLUI/UIFont+MLFonts.h>
 
 static const int kBottomSpaceContent = 32;
 static const int kTopSpaceContent = 4;
@@ -20,6 +21,7 @@ static const int kHorizontalMargin = 32;
 @property (strong, nonatomic) UINavigationBar *navBar;
 @property (strong, nonatomic) UINavigationItem *navItem;
 @property (strong, nonatomic) UIView *containerView;
+@property (strong, nonatomic) UIButton *cancelButton;
 @property (strong, nonatomic) UIView *backgroundView;
 @property (strong, nonatomic) UIView *insideViewToSet;
 @property (strong, nonatomic) UIView *headerView;
@@ -37,7 +39,8 @@ static const int kHorizontalMargin = 32;
 @property (nonatomic) BOOL shouldDismissOnTap;
 @property (nonatomic) BOOL shouldSwipeToDismiss;
 @property (nonatomic) BOOL showVerticalIndicator;
-
+@property (nonatomic) BOOL showCancelButton;
+@property (strong, nonatomic) NSString *cancelButtonTitle;
 
 @end
 
@@ -117,6 +120,16 @@ static const int kHorizontalMargin = 32;
     self.containerView.layer.masksToBounds = YES;
     [self.view addSubview:self.containerView];
     
+    //Cancel button
+    if (self.showCancelButton) {
+        self.cancelButton = [[UIButton alloc] initForAutoLayout];
+        [self.cancelButton setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
+        [self.cancelButton setTitle:self.cancelButtonTitle forState: UIControlStateNormal];
+        self.cancelButton.titleLabel.font = [UIFont ml_lightSystemFontOfSize:20];
+        [self.cancelButton addTarget:self action:@selector(didSelectCancelButton) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.cancelButton];
+    }
+    
     //ScrollView
     self.scrollView = [[UIScrollView alloc] initForAutoLayout];
     self.scrollView.backgroundColor = [UIColor clearColor];
@@ -131,7 +144,6 @@ static const int kHorizontalMargin = 32;
         [self.headerView configureForAutoLayout];
     }
     [self.containerView addSubview:self.headerView];
-    
     
     //NavigationBar
     self.navBar = [[UINavigationBar alloc] initForAutoLayout];
@@ -186,6 +198,12 @@ static const int kHorizontalMargin = 32;
     [self.navBar autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.navBar autoSetDimension:ALDimensionWidth toSize:self.view.frame.size.width];
     [self.navBar autoSetDimension:ALDimensionHeight toSize:44.0f];
+    
+    //Cancel button
+    if (self.cancelButton) {
+        [self.cancelButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.containerView withOffset:24.0f];
+        [self.cancelButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    }
 }
 
 
@@ -368,6 +386,17 @@ static const int kHorizontalMargin = 32;
 - (void)setHorizontalMargin:(CGFloat)horizontalMargin
 {
     self.hortizontalMargin = horizontalMargin;
+}
+
+- (void)setShowCancelButton:(BOOL)show title:(NSString *)title
+{
+    self.showCancelButton = show;
+    self.cancelButtonTitle = title;
+}
+
+- (void)didSelectCancelButton
+{
+    [self dismissView];
 }
 
 @end
