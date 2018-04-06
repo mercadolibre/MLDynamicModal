@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-
 @protocol MLDynamicModalViewControllerDelegate <NSObject>
 /**
  *  This method is called when the modal is dismissed
  **/
-- (void)itemViewDismissed;
+- (void)itemViewDismissed DEPRECATED_MSG_ATTRIBUTE("use setCloseCallback instead.");
 @end
 
 @interface MLDynamicModalViewController : UIViewController
@@ -61,5 +60,5 @@
 - (void)setShowVerticalIndicator:(BOOL)show;
 - (void)setHorizontalMargin:(CGFloat)horizontalMargin;
 - (void)setShowCancelButton:(BOOL)show title:(NSString *)title;
-
+- (void)setCloseCallback:(nullable void (^)(MLDynamicModalViewController *))callback;
 @end

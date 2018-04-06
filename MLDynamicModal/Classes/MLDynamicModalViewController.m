@@ -40,7 +40,8 @@ static const int kHorizontalMargin = 32;
 @property (nonatomic) BOOL shouldSwipeToDismiss;
 @property (nonatomic) BOOL showVerticalIndicator;
 @property (nonatomic) BOOL showCancelButton;
-@property (strong, nonatomic) NSString *cancelButtonTitle;
+@property (nullable, strong, nonatomic) NSString *cancelButtonTitle;
+@property (nullable, nonatomic, copy) void (^closeCallback)(MLDynamicModalViewController *);
 
 @end
 
@@ -248,6 +249,7 @@ static const int kHorizontalMargin = 32;
         if ((fabs(velocity.y) > 400 || fabs(d) > 0.1) && velocity.y * d > 0) {
             self.view.userInteractionEnabled = NO;
             [self.viewControllerDelegate itemViewDismissed];
+            self.closeCallback(self);
             [self.transitionAnimator finishInteractiveTransitionWithRatio:d];
         } else {
             [self.transitionAnimator cancelInteractiveTransitionWithRatio:d];
@@ -282,6 +284,7 @@ static const int kHorizontalMargin = 32;
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
         [self.viewControllerDelegate itemViewDismissed];
+        self.closeCallback(self);
     }];
 }
 
@@ -392,6 +395,10 @@ static const int kHorizontalMargin = 32;
 {
     self.showCancelButton = show;
     self.cancelButtonTitle = title;
+}
+
+- (void)setCloseCallback:(nullable void (^)(MLDynamicModalViewController *))callback{
+    _closeCallback = callback;
 }
 
 - (void)didSelectCancelButton
