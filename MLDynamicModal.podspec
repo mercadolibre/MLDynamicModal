@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.resources = ['MLDynamicModal/**/*.{xib}' ,'MLDynamicModal/**/*.{xcassets}','MLDynamicModal/Resources/*.plist']
   s.dependency 'PureLayout'
   s.dependency 'FXBlurView'
+  s.dependency 'MLUI'
 end
