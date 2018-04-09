@@ -349,14 +349,12 @@ static const int kHorizontalMargin = 32;
 {
     [self.insideViewToSet configureForAutoLayout];
     
-    //Cancel button
     if (self.showCancelButton) {
         self.cancelButton = [[UIButton alloc] initForAutoLayout];
         [self.cancelButton setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
         [self.cancelButton setTitle:self.cancelButtonTitle forState: UIControlStateNormal];
         self.cancelButton.titleLabel.font = [UIFont ml_lightSystemFontOfSize:20.0f];
         [self.cancelButton addTarget:self action:@selector(didSelectCancelButton) forControlEvents:UIControlEventTouchUpInside];
-        //set constraints
         
         UIView *innerView = [[UIView alloc] initForAutoLayout];
         [innerView setBackgroundColor:[UIColor clearColor]];
