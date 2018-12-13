@@ -299,6 +299,11 @@ static const int kHorizontalMargin = 32;
     if (self.blurView != NULL) {
          [self.blurView  removeFromSuperview];
     }
+    [self createBlur];
+}
+
+-(void)createBlur
+{
     self.blurView = [[FXBlurView alloc] initWithFrame:self.presentingViewController.view.frame];
     self.blurView.dynamic = NO;
     self.blurView.updateInterval = 0;
@@ -312,14 +317,8 @@ static const int kHorizontalMargin = 32;
 {
     self.backgroundView.alpha = 0;
     self.navBar.alpha = 0;
-    self.blurView = [[FXBlurView alloc] initWithFrame:frame];
-    self.blurView.dynamic = NO;
-    self.blurView.updateInterval = 0;
-    self.blurView.underlyingView = self.presentingViewController.view;
-    self.blurView.blurRadius = 20;
+    [self createBlur];
     self.blurView.alpha = 0;
-    [self.view insertSubview:self.blurView atIndex:0];
-    
     [self.blurView setNeedsDisplay];
 }
 
