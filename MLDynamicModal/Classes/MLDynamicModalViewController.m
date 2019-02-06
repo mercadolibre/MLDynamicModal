@@ -42,7 +42,7 @@ static const int kHorizontalMargin = 32;
 @property (nonatomic) BOOL showCancelButton;
 @property (nullable, strong, nonatomic) NSString *cancelButtonTitle;
 @property (nullable, nonatomic, copy) void (^closeCallback)(MLDynamicModalViewController *);
-
+@property (strong, nonatomic) FXBlurView *blurView;
 @end
 
 @implementation MLDynamicModalViewController
@@ -294,20 +294,32 @@ static const int kHorizontalMargin = 32;
     [self.view layoutIfNeeded];
 }
 
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    if (self.blurView != NULL) {
+         [self.blurView  removeFromSuperview];
+    }
+    [self createBlur];
+}
+
+-(void)createBlur
+{
+    self.blurView = [[FXBlurView alloc] initWithFrame:self.presentingViewController.view.frame];
+    self.blurView.dynamic = NO;
+    self.blurView.updateInterval = 0;
+    self.blurView.underlyingView = self.presentingViewController.view;
+    self.blurView.blurRadius = 20;
+    self.blurView.alpha = 1;
+    [self.view insertSubview:self.blurView atIndex:0];
+}
+
 - (void)prepareAnimationFadeInWithFrame:(CGRect)frame
 {
     self.backgroundView.alpha = 0;
     self.navBar.alpha = 0;
-    
-    FXBlurView *blurView = [[FXBlurView alloc] initWithFrame:frame];
-    blurView.dynamic = NO;
-    blurView.updateInterval = 0;
-    blurView.underlyingView = self.presentingViewController.view;
-    blurView.blurRadius = 20;
-    blurView.alpha = 0;
-    [self.view insertSubview:blurView atIndex:0];
-    
-    [blurView setNeedsDisplay];
+    [self createBlur];
+    self.blurView.alpha = 0;
+    [self.blurView setNeedsDisplay];
 }
 
 - (void)animationFadeInWithFrame:(CGRect)frame
@@ -315,10 +327,10 @@ static const int kHorizontalMargin = 32;
     self.backgroundView.alpha = 1;
     self.navBar.alpha = 1;
     
-    FXBlurView *blurView = self.view.subviews.firstObject;
-    blurView.alpha = 1;
+    self.blurView = self.view.subviews.firstObject;
+    self.blurView.alpha = 1;
     
-    [blurView setNeedsDisplay];
+    [self.blurView setNeedsDisplay];
 }
 
 - (void)animationFadeOut
@@ -326,10 +338,10 @@ static const int kHorizontalMargin = 32;
     self.backgroundView.alpha = 0;
     self.navBar.alpha = 0;
     
-    FXBlurView *blurView = self.view.subviews.firstObject;
-    blurView.alpha = 0;
+    self.blurView = self.view.subviews.firstObject;
+    self.blurView.alpha = 0;
     
-    [blurView setNeedsDisplay];
+    [self.blurView setNeedsDisplay];
 }
 
 - (void)animationRatio:(CGFloat)percent

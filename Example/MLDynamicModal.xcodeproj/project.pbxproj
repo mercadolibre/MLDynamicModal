@@ -41,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		12D3D541C1D2F244B7E21984 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		1AA237AACC631108E7B323A2 /* MLDynamicModal.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MLDynamicModal.podspec; path = ../MLDynamicModal.podspec; sourceTree = "<group>"; };
+		1AA237AACC631108E7B323A2 /* MLDynamicModal.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MLDynamicModal.podspec; path = ../MLDynamicModal.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		31DE3A86199B204BE6C84BA2 /* Pods_MLDynamicModal_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLDynamicModal_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		441AEE23E7A81AD664C9B741 /* Pods-MLDynamicModal_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLDynamicModal_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5939349DB09A1A39CA7498BA /* Pods_MLDynamicModal_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLDynamicModal_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,7 +223,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				D3C2C346C566A4664B7DDA99 /* [CP] Embed Pods Frameworks */,
-				6403BE69D176D752522B38B8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,7 +242,6 @@
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
 				D01023CD87894E4E7B617772 /* [CP] Embed Pods Frameworks */,
-				FC8E90125162BFF405F3AF32 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -330,21 +328,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6403BE69D176D752522B38B8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BEB0560176494E0BA046FF72 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -369,7 +352,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Tests/Pods-MLDynamicModal_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MLDynamicModal_Tests/Pods-MLDynamicModal_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/OCMock/OCMock.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -378,7 +361,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Tests/Pods-MLDynamicModal_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MLDynamicModal_Tests/Pods-MLDynamicModal_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3C2C346C566A4664B7DDA99 /* [CP] Embed Pods Frameworks */ = {
@@ -387,35 +370,24 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FXBlurView/FXBlurView.framework",
+				"${BUILT_PRODUCTS_DIR}/JRSwizzle/JRSwizzle.framework",
 				"${BUILT_PRODUCTS_DIR}/MLDynamicModal/MLDynamicModal.framework",
+				"${BUILT_PRODUCTS_DIR}/MLUI/MLUI.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FXBlurView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JRSwizzle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLDynamicModal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FC8E90125162BFF405F3AF32 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Tests/Pods-MLDynamicModal_Tests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
