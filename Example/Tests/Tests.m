@@ -8,7 +8,7 @@
 
 @import XCTest;
 #import <MLDynamicModal/MLDynamicModalViewController.h>
-#import <MLDynamicModal/MLModalTransitionAnimator.h>
+#import <MLDynamicModal/MLDynamicModalTransitionAnimator.h>
 #import <MLDynamicModal/MLDynamicModalTitleView.h>
 #import <OCMock/OCMock.h>
 
@@ -36,7 +36,7 @@
 @property (strong, nonatomic) UIColor *headerBackgroundColor;
 @property (nonatomic, assign) CGFloat viewOffsetY;
 @property (nonatomic, weak) id <MLDynamicModalViewControllerDelegate> viewControllerDelegate;
-@property (strong, nonatomic) MLModalTransitionAnimator *transitionAnimator;
+@property (strong, nonatomic) MLDynamicModalTransitionAnimator *transitionAnimator;
 @property (nonatomic) BOOL showCloseButton;
 @property (nonatomic) BOOL shouldDismissOnTap;
 @property (nonatomic) BOOL shouldSwipeToDismiss;

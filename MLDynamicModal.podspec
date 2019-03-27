@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = 'Mercado Libre Custom Modal'
 
   s.description      = <<-DESC
-                MLDynamicModal is a custom modal for iOS with swipe, tap and button dismiss recognizer       
+                MLDynamicModal is a custom modal for iOS with swipe, tap and button dismiss recognizer
 		DESC
 
   s.homepage         = 'https://github.com/mercadolibre/MLDynamicModal'
@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/mercadolibre/MLDynamicModal.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
+  s.static_framework = true
 
   s.source_files = 'MLDynamicModal/Classes/**/*'
   s.resources = ['MLDynamicModal/**/*.{xib}' ,'MLDynamicModal/**/*.{xcassets}','MLDynamicModal/Resources/*.plist']
