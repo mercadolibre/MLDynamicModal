@@ -15,7 +15,6 @@
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* MLDMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* MLDMAppDelegate.m */; };
 		6003F5A7195388D20070C39A /* MLDMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* MLDMViewController.m */; };
-		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -23,6 +22,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		D0CA2849225534210027E41B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0CA2848225534210027E41B /* Images.xcassets */; };
 		D0FA619A1F50736000E0BE68 /* MLDMInsideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FA61991F50736000E0BE68 /* MLDMInsideView.m */; };
 		D0FA619D1F50737400E0BE68 /* MLDMLargeInsideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FA619C1F50737400E0BE68 /* MLDMLargeInsideView.m */; };
 		D0FA61A01F507E2000E0BE68 /* MLDMCustomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FA619F1F507E2000E0BE68 /* MLDMCustomHeaderView.m */; };
@@ -57,7 +57,6 @@
 		6003F59D195388D20070C39A /* MLDMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDMAppDelegate.m; sourceTree = "<group>"; };
 		6003F5A5195388D20070C39A /* MLDMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDMViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* MLDMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDMViewController.m; sourceTree = "<group>"; };
-		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* MLDynamicModal_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MLDynamicModal_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD030E66B5EF11FABBFEBD3E /* Pods-MLDynamicModal_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLDynamicModal_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MLDynamicModal_Tests/Pods-MLDynamicModal_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D0CA2848225534210027E41B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D0FA61981F50736000E0BE68 /* MLDMInsideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDMInsideView.h; sourceTree = "<group>"; };
 		D0FA61991F50736000E0BE68 /* MLDMInsideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLDMInsideView.m; sourceTree = "<group>"; };
 		D0FA619B1F50737400E0BE68 /* MLDMLargeInsideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDMLargeInsideView.h; sourceTree = "<group>"; };
@@ -153,12 +153,12 @@
 			isa = PBXGroup;
 			children = (
 				6003F59C195388D20070C39A /* MLDMAppDelegate.h */,
+				D0CA2848225534210027E41B /* Images.xcassets */,
 				6003F59D195388D20070C39A /* MLDMAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* MLDMViewController.h */,
 				6003F5A6195388D20070C39A /* MLDMViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 				D0FA61981F50736000E0BE68 /* MLDMInsideView.h */,
 				D0FA61991F50736000E0BE68 /* MLDMInsideView.m */,
@@ -294,8 +294,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				D0CA2849225534210027E41B /* Images.xcassets in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
-				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,7 +353,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MLDynamicModal_Tests/Pods-MLDynamicModal_Tests-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Tests/Pods-MLDynamicModal_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/OCMock/OCMock.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -362,7 +362,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MLDynamicModal_Tests/Pods-MLDynamicModal_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Tests/Pods-MLDynamicModal_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3C2C346C566A4664B7DDA99 /* [CP] Embed Pods Frameworks */ = {
@@ -371,7 +371,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FXBlurView/FXBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/JRSwizzle/JRSwizzle.framework",
 				"${BUILT_PRODUCTS_DIR}/MLUI/MLUI.framework",
@@ -386,7 +386,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E9003A5419666F190D138B95 /* [CP] Copy Pods Resources */ = {
@@ -397,7 +397,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-resources.sh",
 				"${PODS_ROOT}/../../MLDynamicModal/Assets/MLDynamicModal.xcassets",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -408,7 +408,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MLDynamicModal_Example/Pods-MLDynamicModal_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -551,6 +551,7 @@
 			baseConfigurationReference = 441AEE23E7A81AD664C9B741 /* Pods-MLDynamicModal_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MLDynamicModal/MLDynamicModal-Prefix.pch";
 				INFOPLIST_FILE = "MLDynamicModal/MLDynamicModal-Info.plist";
@@ -566,6 +567,7 @@
 			baseConfigurationReference = FDA943ECACF1A387035380A8 /* Pods-MLDynamicModal_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MLDynamicModal/MLDynamicModal-Prefix.pch";
 				INFOPLIST_FILE = "MLDynamicModal/MLDynamicModal-Info.plist";
