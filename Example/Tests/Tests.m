@@ -40,9 +40,6 @@
 @property (nonatomic) BOOL showCloseButton;
 @property (nonatomic) BOOL shouldDismissOnTap;
 @property (nonatomic) BOOL shouldSwipeToDismiss;
-@property (nonatomic) BOOL shouldMakeCloseBtnAccessible;
-@property (nullable,strong,nonatomic) UIBarButtonItem *closeBtn;
-@property (strong,nonatomic) NSString *closeBtnAccessibilityLabel;
 
 - (instancetype)initWithView:(UIView *)view attributedTitle:(NSAttributedString *)attributedTitle headerView:(UIView *)headerView;
 - (void)setupSubviews;
