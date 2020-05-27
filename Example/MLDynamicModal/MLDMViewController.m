@@ -72,6 +72,7 @@
     [modal setShouldDismissOnTap:YES];
     [modal setShouldSwipeToDismiss:YES];
     [modal setShowCloseButton:YES];
+    [modal setCloseBtnAccessibility:@"Close"];
     modal.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     modal.modalPresentationStyle = UIModalPresentationCustom;
     [self presentViewController:modal animated:YES completion:nil];
@@ -94,6 +95,7 @@
     [modal setShouldDismissOnTap:YES];
     [modal setShouldSwipeToDismiss:YES];
     [modal setShowCloseButton:YES];
+    [modal setCloseBtnAccessibility:@"Close"];
     modal.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     modal.modalPresentationStyle = UIModalPresentationCustom;
     [self presentViewController:modal animated:YES completion:nil];
@@ -106,6 +108,7 @@
     [modal setShouldSwipeToDismiss:YES];
     [modal setShowCloseButton:YES];
     [modal setShowVerticalIndicator:NO];
+    [modal setCloseBtnAccessibility:@"Close"];
     modal.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     modal.modalPresentationStyle = UIModalPresentationCustom;
     [self presentViewController:modal animated:YES completion:nil];
@@ -119,6 +122,7 @@
     [modal setShouldDismissOnTap:YES];
     [modal setShouldSwipeToDismiss:YES];
     [modal setShowCloseButton:YES];
+    [modal setCloseBtnAccessibility:@"Close"];
     [modal setModalBackgroundColor:[UIColor yellowColor]];
     [modal setModalCloseButtonColor:[UIColor redColor]];
     [modal setModalHeaderBackgroundColor:[UIColor redColor]];
@@ -133,6 +137,7 @@
     [modal setShouldDismissOnTap:YES];
     [modal setShouldSwipeToDismiss:YES];
     [modal setShowCloseButton:YES];
+    [modal setCloseBtnAccessibility:@"Close"];
     [modal setHorizontalMargin:16.0f];
     modal.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     modal.modalPresentationStyle = UIModalPresentationCustom;

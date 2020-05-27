@@ -40,7 +40,9 @@
 @property (nonatomic) BOOL showCloseButton;
 @property (nonatomic) BOOL shouldDismissOnTap;
 @property (nonatomic) BOOL shouldSwipeToDismiss;
-
+@property (nonatomic) BOOL shouldMakeCloseBtnAccessible;
+@property (nullable,strong,nonatomic) UIBarButtonItem *closeBtn;
+@property (strong,nonatomic) NSString *closeBtnAccessibilityLabel;
 
 - (instancetype)initWithView:(UIView *)view attributedTitle:(NSAttributedString *)attributedTitle headerView:(UIView *)headerView;
 - (void)setupSubviews;
@@ -52,7 +54,6 @@
 - (void)setModalBackgroundColor:(UIColor *)color;
 - (void)setModalCloseButtonColor:(UIColor *)color;
 - (void)setModalHeaderBackgroundColor:(UIColor *)color;
-
 
 @end
 
@@ -161,6 +162,16 @@
     [self.modalViewController viewDidLoad];
     
     XCTAssertEqualObjects(self.modalViewController.headerView.backgroundColor, [UIColor redColor]);
+}
+
+- (void)testSetCloseBtnAccessibility
+{
+    self.modalViewController = OCMPartialMock([[MLDynamicModalViewController alloc] initWithView:nil attributedTitle:nil headerView:nil]);
+    [self.modalViewController setCloseBtnAccessibility:@"Cerrar"];
+    [self.modalViewController viewDidLoad];
+    
+    XCTAssertTrue(self.modalViewController.shouldMakeCloseBtnAccessible);
+    XCTAssertEqualObjects(self.modalViewController.closeBtnAccessibilityLabel, @"Cerrar");
 }
 
 @end

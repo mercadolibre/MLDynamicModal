@@ -35,6 +35,7 @@ static const int kHorizontalMargin = 32;
 @property (nonatomic, assign) CGFloat viewOffsetY;
 @property (nonatomic, assign) CGFloat hortizontalMargin;
 @property (strong, nonatomic) MLDynamicModalTransitionAnimator *transitionAnimator;
+@property (nonatomic) BOOL shouldMakeCloseBtnAccessible;
 @property (nonatomic) BOOL showCloseButton;
 @property (nonatomic) BOOL shouldDismissOnTap;
 @property (nonatomic) BOOL shouldSwipeToDismiss;
@@ -43,6 +44,8 @@ static const int kHorizontalMargin = 32;
 @property (nullable, strong, nonatomic) NSString *cancelButtonTitle;
 @property (nullable, nonatomic, copy) void (^closeCallback)(MLDynamicModalViewController *);
 @property (strong, nonatomic) FXBlurView *blurView;
+@property (nullable,strong,nonatomic) UIBarButtonItem *closeBtn;
+@property (strong,nonatomic) NSString *closeBtnAccessibilityLabel;
 @end
 
 @implementation MLDynamicModalViewController
@@ -100,8 +103,11 @@ static const int kHorizontalMargin = 32;
     if (self.insideViewToSet) {
         [self configInsideViewToSet];
     }
-    if (self.showCloseButton) {
+    if (self.showCloseButton ) {
         [self configureCloseButtonWithColor:self.closeButtonColor];
+        if (self.shouldMakeCloseBtnAccessible) {
+            [self setCloseBtnAccessibility: self.closeBtnAccessibilityLabel];
+        }
     }
     [self addViewGestureRecognizers];
 }
@@ -251,14 +257,25 @@ static const int kHorizontalMargin = 32;
     
     closeImg = [closeImg imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
-    UIBarButtonItem *closeBtn = [[UIBarButtonItem alloc] initWithImage:closeImg
+    self.closeBtn = [[UIBarButtonItem alloc] initWithImage:closeImg
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(closeButtonPressed)];
-    closeBtn.tintColor = color;
+    self.closeBtn.tintColor = color;
     self.navItem = [[UINavigationItem alloc] init];
-    [self.navItem setLeftBarButtonItem:closeBtn];
+    [self.navItem setLeftBarButtonItem:self.closeBtn];
     [self.navBar setItems:@[self.navItem]];
+}
+
+- (void)setCloseBtnAccessibility:(NSString *_Nonnull)accessibilityLabel
+{
+    if (!self.shouldMakeCloseBtnAccessible) {
+        self.closeBtnAccessibilityLabel = accessibilityLabel;
+        self.shouldMakeCloseBtnAccessible = TRUE;
+    } else {
+        self.closeBtn.isAccessibilityElement = TRUE;
+        self.closeBtn.accessibilityLabel = self.closeBtnAccessibilityLabel;
+    }
 }
 
 - (void)closeButtonPressed

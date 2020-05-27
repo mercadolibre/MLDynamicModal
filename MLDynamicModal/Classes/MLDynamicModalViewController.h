@@ -61,4 +61,5 @@
 - (void)setHorizontalMargin:(CGFloat)horizontalMargin;
 - (void)setShowCancelButton:(BOOL)show title:(NSString *)title;
 - (void)setCloseCallback:(nullable void (^)(MLDynamicModalViewController *))callback;
+- (void)setCloseBtnAccessibility:(NSString *_Nonnull)accessibilityLabel;
 @end
