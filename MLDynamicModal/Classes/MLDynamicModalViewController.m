@@ -35,7 +35,6 @@ static const int kHorizontalMargin = 32;
 @property (nonatomic, assign) CGFloat viewOffsetY;
 @property (nonatomic, assign) CGFloat hortizontalMargin;
 @property (strong, nonatomic) MLDynamicModalTransitionAnimator *transitionAnimator;
-@property (nonatomic) BOOL shouldMakeCloseBtnAccessible;
 @property (nonatomic) BOOL showCloseButton;
 @property (nonatomic) BOOL shouldDismissOnTap;
 @property (nonatomic) BOOL shouldSwipeToDismiss;
@@ -101,7 +100,7 @@ static const int kHorizontalMargin = 32;
     if (self.insideViewToSet) {
         [self configInsideViewToSet];
     }
-    if (self.showCloseButton ) {
+    if (self.showCloseButton) {
         [self configureCloseButtonWithColor:self.closeButtonColor];
     }
     [self addViewGestureRecognizers];
