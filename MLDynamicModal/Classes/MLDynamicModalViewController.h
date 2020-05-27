@@ -49,6 +49,7 @@
  */
 - (instancetype)initWithView:(UIView *)view;
 
+@property (strong, nonatomic) NSString *closeBtnAccessibilityLabel;
 @property (nonatomic, weak) id <MLDynamicModalViewControllerDelegate> viewControllerDelegate;
 
 - (void)setShowCloseButton:(BOOL)show;
@@ -61,5 +62,4 @@
 - (void)setHorizontalMargin:(CGFloat)horizontalMargin;
 - (void)setShowCancelButton:(BOOL)show title:(NSString *)title;
 - (void)setCloseCallback:(nullable void (^)(MLDynamicModalViewController *))callback;
-- (void)setCloseBtnAccessibility:(NSString *_Nonnull)accessibilityLabel;
 @end

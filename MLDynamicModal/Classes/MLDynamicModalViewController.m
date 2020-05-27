@@ -44,8 +44,6 @@ static const int kHorizontalMargin = 32;
 @property (nullable, strong, nonatomic) NSString *cancelButtonTitle;
 @property (nullable, nonatomic, copy) void (^closeCallback)(MLDynamicModalViewController *);
 @property (strong, nonatomic) FXBlurView *blurView;
-@property (nullable,strong,nonatomic) UIBarButtonItem *closeBtn;
-@property (strong,nonatomic) NSString *closeBtnAccessibilityLabel;
 @end
 
 @implementation MLDynamicModalViewController
@@ -105,9 +103,6 @@ static const int kHorizontalMargin = 32;
     }
     if (self.showCloseButton ) {
         [self configureCloseButtonWithColor:self.closeButtonColor];
-        if (self.shouldMakeCloseBtnAccessible) {
-            [self setCloseBtnAccessibility: self.closeBtnAccessibilityLabel];
-        }
     }
     [self addViewGestureRecognizers];
 }
@@ -257,25 +252,16 @@ static const int kHorizontalMargin = 32;
     
     closeImg = [closeImg imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
-    self.closeBtn = [[UIBarButtonItem alloc] initWithImage:closeImg
+    UIBarButtonItem *closeBtn = [[UIBarButtonItem alloc] initWithImage:closeImg
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(closeButtonPressed)];
-    self.closeBtn.tintColor = color;
+    closeBtn.isAccessibilityElement = YES;
+    closeBtn.accessibilityLabel = self.closeBtnAccessibilityLabel;
+    closeBtn.tintColor = color;
     self.navItem = [[UINavigationItem alloc] init];
-    [self.navItem setLeftBarButtonItem:self.closeBtn];
+    [self.navItem setLeftBarButtonItem:closeBtn];
     [self.navBar setItems:@[self.navItem]];
-}
-
-- (void)setCloseBtnAccessibility:(NSString *_Nonnull)accessibilityLabel
-{
-    if (!self.shouldMakeCloseBtnAccessible) {
-        self.closeBtnAccessibilityLabel = accessibilityLabel;
-        self.shouldMakeCloseBtnAccessible = TRUE;
-    } else {
-        self.closeBtn.isAccessibilityElement = TRUE;
-        self.closeBtn.accessibilityLabel = self.closeBtnAccessibilityLabel;
-    }
 }
 
 - (void)closeButtonPressed

@@ -167,10 +167,9 @@
 - (void)testSetCloseBtnAccessibility
 {
     self.modalViewController = OCMPartialMock([[MLDynamicModalViewController alloc] initWithView:nil attributedTitle:nil headerView:nil]);
-    [self.modalViewController setCloseBtnAccessibility:@"Cerrar"];
+    self.modalViewController.closeBtnAccessibilityLabel = @"Cerrar";
     [self.modalViewController viewDidLoad];
     
-    XCTAssertTrue(self.modalViewController.shouldMakeCloseBtnAccessible);
     XCTAssertEqualObjects(self.modalViewController.closeBtnAccessibilityLabel, @"Cerrar");
 }
 
