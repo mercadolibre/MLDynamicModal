@@ -255,6 +255,8 @@ static const int kHorizontalMargin = 32;
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(closeButtonPressed)];
+    closeBtn.isAccessibilityElement = YES;
+    closeBtn.accessibilityLabel = self.closeBtnAccessibilityLabel;
     closeBtn.tintColor = color;
     self.navItem = [[UINavigationItem alloc] init];
     [self.navItem setLeftBarButtonItem:closeBtn];

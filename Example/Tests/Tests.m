@@ -41,7 +41,6 @@
 @property (nonatomic) BOOL shouldDismissOnTap;
 @property (nonatomic) BOOL shouldSwipeToDismiss;
 
-
 - (instancetype)initWithView:(UIView *)view attributedTitle:(NSAttributedString *)attributedTitle headerView:(UIView *)headerView;
 - (void)setupSubviews;
 - (void)setupConstraints;
@@ -52,7 +51,6 @@
 - (void)setModalBackgroundColor:(UIColor *)color;
 - (void)setModalCloseButtonColor:(UIColor *)color;
 - (void)setModalHeaderBackgroundColor:(UIColor *)color;
-
 
 @end
 
@@ -161,6 +159,15 @@
     [self.modalViewController viewDidLoad];
     
     XCTAssertEqualObjects(self.modalViewController.headerView.backgroundColor, [UIColor redColor]);
+}
+
+- (void)testSetCloseBtnAccessibility
+{
+    self.modalViewController = OCMPartialMock([[MLDynamicModalViewController alloc] initWithView:nil attributedTitle:nil headerView:nil]);
+    self.modalViewController.closeBtnAccessibilityLabel = @"Cerrar";
+    [self.modalViewController viewDidLoad];
+    
+    XCTAssertEqualObjects(self.modalViewController.closeBtnAccessibilityLabel, @"Cerrar");
 }
 
 @end

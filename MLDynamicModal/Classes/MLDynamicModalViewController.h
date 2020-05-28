@@ -49,6 +49,7 @@
  */
 - (instancetype)initWithView:(UIView *)view;
 
+@property (strong, nonatomic) NSString *closeBtnAccessibilityLabel;
 @property (nonatomic, weak) id <MLDynamicModalViewControllerDelegate> viewControllerDelegate;
 
 - (void)setShowCloseButton:(BOOL)show;
