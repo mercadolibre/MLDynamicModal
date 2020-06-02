@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MLDynamicModal'
-  s.version          = '0.4.0'
+  s.version          = '0.4.1'
   s.summary          = 'Mercado Libre Custom Modal'
 
   s.description      = <<-DESC
@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/mercadolibre/MLDynamicModal.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
-  s.static_framework = true
 
   s.source_files = 'MLDynamicModal/Classes/**/*'
   s.resources = ['MLDynamicModal/**/*.{xib}' ,'MLDynamicModal/**/*.{xcassets}','MLDynamicModal/Resources/*.plist']
