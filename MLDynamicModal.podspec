@@ -19,4 +19,7 @@ Pod::Spec.new do |s|
   s.dependency 'PureLayout'
   s.dependency 'FXBlurView'
   s.dependency 'MLUI'
+
+  s.pod_target_xcconfig = `xcodebuild -version` =~ /Xcode 12./ ? { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' } : { }
+
 end
